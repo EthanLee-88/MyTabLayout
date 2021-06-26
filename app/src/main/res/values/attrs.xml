@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MyTextView">
+        <attr name="MyTextColor" format="color" />
+        <attr name="MyText" format="string" />
+        <attr name="MyTextSize" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="MyStepView">
+        <attr name="StepCurrentSteps" format="integer" />
+        <attr name="StepTargetSteps" format="integer" />
+        <attr name="StepTextColor" format="color" />
+        <attr name="StepTextSize" format="dimension" />
+        <attr name="StepBorderWidth" format="dimension" />
+        <attr name="InnerBorderColor" format="color" />
+        <attr name="OuterBorderColor" format="dimension" />
+    </declare-styleable>
+    <declare-styleable name="DiscolourTextView">
+        <attr name="ChangeColor" format="color" />
+    </declare-styleable>
+    <declare-styleable name="ColorTrackTextView">
+        <attr name="origin_color" format="color" />
+        <attr name="change_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="LettersSeekBar">
+        <attr name="LetterNormalColor" format="color" />
+        <attr name="LetterHighLightColor" format="color" />
+        <attr name="LettersTextSize" format="dimension" />
+    </declare-styleable>
+</resources>
