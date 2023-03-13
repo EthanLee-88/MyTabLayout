@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
 import com.ethan.launcherkt.LauncherKtMainActivity
+import com.ethan.launcherkt.launch.EasyConstance.Companion.EASY_CONFIG_STR
 
 class HolderFragment : Fragment() {
 
@@ -17,9 +18,10 @@ class HolderFragment : Fragment() {
         retainInstance = true
     }
 
-    fun launchActivity(callBack: LaunchCallBack) {
+    fun launchActivity(callBack: LaunchCallBack, config: EasyConfig) {
         this.mLaunchCallBack = callBack
         val intent = Intent(context, LauncherKtMainActivity::class.java)
+        intent.putExtra(EASY_CONFIG_STR, config)
         startActivityForResult(intent, REQUEST_CODE_FOR_LAUNCH)
     }
 

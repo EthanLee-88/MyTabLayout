@@ -9,6 +9,8 @@ class EasyBuilder {
     private lateinit var mFragment: WeakReference<Fragment>
     private lateinit var mActivity: WeakReference<FragmentActivity>
 
+    private lateinit var mConfig: EasyConfig
+
     private constructor(fragment: Fragment) {
         mFragment = WeakReference(fragment)
     }
@@ -27,18 +29,31 @@ class EasyBuilder {
         }
     }
 
+    fun setConfig(config: EasyConfig) {
+        this.mConfig = config
+    }
+
+    private fun getLocalConfig(): EasyConfig {
+        if (!this::mConfig.isInitialized) {
+            this.mConfig = EasyConfig(888, "碧云天")
+        }
+        return this.mConfig
+    }
+
     fun launchActivity(callBack: LaunchCallBack) {
         if (this::mActivity.isInitialized) {
             val activity = mActivity.get()
             if (activity != null) {
-                HolderFragment.getHolderFragment(activity).launchActivity(callBack)
+                HolderFragment.getHolderFragment(activity)
+                    .launchActivity(callBack, getLocalConfig())
             }
             return
         }
         if ((this::mFragment.isInitialized) && (this.mFragment.get() != null)) {
             val fragment = this.mFragment.get()
             if (fragment != null) {
-                HolderFragment.getHolderFragment(fragment).launchActivity(callBack)
+                HolderFragment.getHolderFragment(fragment)
+                    .launchActivity(callBack, getLocalConfig())
             }
         }
     }
